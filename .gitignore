@@ -1,0 +1,11 @@
+# IDE
+*.idea
+*.iml
+*.vscode
+
+# Module
+node_modules
+
+# Build
+*.js
+*.map

@@ -1,0 +1,19 @@
+{
+  "name": "wl-packer",
+  "version": "0.1.0",
+  "description": "a tool to pack wolfram paclet",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Aster",
+  "license": "MIT",
+  "dependencies": {
+    "@marklet/core": "^3.2.3",
+    "archiver": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/archiver": "^2.1.2",
+    "@types/node": "^10.12.12"
+  }
+}
