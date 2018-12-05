@@ -3,7 +3,7 @@
 (* Created with the Wolfram Language : www.wolfram.com *)
 
 
-<|
+Bundle[
 	Filter -> <|
 		Exclude -> {"yarn.lock", "*.git", "package.json"},
 		Include -> {},
@@ -11,7 +11,7 @@
 	|>,
 	Release -> <|
 		Local -> <|
-			Path-> " "
+			Path-> " ",
 			AutoVersion -> False,
 			BuildNumber -> True,
 			Hash -> True
@@ -23,4 +23,4 @@
 			GithubKey -> "$GITHUB_TOKEN"
 		|>
 	|>
-|>
+]
