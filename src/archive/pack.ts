@@ -12,7 +12,7 @@ function patten_string(p: any): string {
 }
 
 /**
- * 将 glob 模式转化为文件路径列表
+ * Convert glob mode to file path list
  */
 function pattern2files(path: string, pattern: any) {
 	var callback = function (err, fileList) {
