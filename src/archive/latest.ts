@@ -1,33 +1,53 @@
-import request = require("request");
+import request = require("request-promise");
 
+
+// Legal
+// short:    v1.2
+// std:      v1.2.5
+// long:     v1.2.5.17
+
+// Tag
+// git_hash:  v1.2.5-08aa17
+// without_v: 1.2.5
+
+// Legacy
+// build_date:    v1.2.5-20180817
+// build_number:  v1.2.5.5124
 
 
 // TODO: local_version
-
+// Based on the file name
 
 export function github_version(owner: string, repo: string) {
-    const releases_url = "https://api.github.com/repos/" + owner + "/" + repo + "+/releases"
-    //TODO: if empty
-    var releases=request(releases_url, function (error, response, body) {
-        if (!error && response.statusCode == 200) {
-            console.log(body)
+    let options = {
+        method: "GET",
+        uri: "https://api.github.com/repos/" + owner + "/" + repo + "/releases",
+        json: true,
+        headers: {
+            'User-Agent': "Wolfram HTTPClient 10"
         }
-    })
-    const latest_url = JSON.parse(releases) // first means latest
-    //take "assets_url"
-    
+    };
+    request(options)
+        .then(function (response) {
+            const latest = response[1].tag_name;
+            return latest
+        })
+        .catch(function (err) {
+            throw err
+        })
 }
 
 
 
 
 export function paclet_version(this_ver: string, last_ver: string) {
-    const this_vers = this_ver.split(".")
-    const last_vers = last_ver.split(".")
-    // if all except last >= this, auto else this
+    if (last_ver.indexOf("v")) {const v = true}
+    if (last_ver.indexOf("-")) {const h = true}
+    let this_vers = this_ver.split(".");
+    let last_vers = last_ver.split(".")
+    // this:last = paclet
+    // [1,2,0]:[1,2,5]="v1.2.6"
+    // [1,3,0]:[1,2,5]="v1.3.0"
 }
-
-
-
 
 

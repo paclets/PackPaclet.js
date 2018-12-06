@@ -9,9 +9,13 @@ Bundle[
 		Include -> {},
 		Documentation -> {"Documentation/*"}
 	|>,
+	Build -> <|
+	
+	
+	|>,
 	Release -> <|
 		Local -> <|
-			Path-> " ",
+			Path -> " ",
 			AutoVersion -> False,
 			BuildNumber -> True,
 			Hash -> True
