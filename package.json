@@ -6,16 +6,21 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:paclets/PackPaclet.js.git"
+  },
   "author": "Aster",
   "license": "MIT",
   "dependencies": {
     "@marklet/core": "^3.2.3",
     "archiver": "^3.0.0",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2"
   },
   "devDependencies": {
     "@types/archiver": "^2.1.2",
     "@types/node": "^10.12.12",
-    "@types/request": "^2.48.1"
+    "@types/request-promise": "^4.1.42"
   }
 }
