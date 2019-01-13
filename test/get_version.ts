@@ -1,14 +1,7 @@
-import path = require('path');
-import "./wolfram";
-import "./archive";
+import * as paclet from '..'
+import * as path from 'path'
 
-
-
-
-
-
-
-
-const this_ver = serialize("Paclet.m").Version
-const last_ver = github_version("szhorvat", "MaTeX")
-console.log(paclet_version(this_ver,last_ver))
+const data = paclet.serialize(path.join(__dirname, 'PacletInfo.m'))
+console.log(data)
+// const last_ver = paclet.github_version("szhorvat", "MaTeX")
+// console.log(paclet.paclet_version(this_ver,last_ver))

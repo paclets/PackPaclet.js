@@ -1,9 +1,15 @@
-import fs = require('fs');
-
-const { DocumentLexer } = require('@marklet/core');
+import * as fs from 'fs'
+import { DocumentLexer } from '@marklet/core'
 
 const lexer = new DocumentLexer({
   main: [
+    {
+      regex: /\(\*/,
+      type: 'comment',
+      prefix_regex: /\*\)/,
+      push: [],
+      token: (_, [text]) => ({ text }),
+    },
     {
       regex: /([\w$`]+)\[/,
       type: 'function',
@@ -28,11 +34,11 @@ const lexer = new DocumentLexer({
     },
     {
       regex: /True\b/,
-      token: true
+      token: 'true'
     },
     {
       regex: /False\b/,
-      token: false
+      token: 'false'
     },
     {
       regex: '{',
